@@ -43,7 +43,7 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-
+        $this->loadAuthComponent();
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see http://book.cakephp.org/3.0/en/controllers/components/security.html
@@ -65,5 +65,43 @@ class AppController extends Controller
         ) {
             $this->set('_serialize', true);
         }
+    }
+
+    /**
+     * Configures the AuthComponent
+     *
+     * @return void
+     */
+    protected function loadAuthComponent()
+    {
+        $this->loadComponent('Auth', [
+            'authorize' => ['Controller'],
+            'loginAction' => [
+                'plugin' => null,
+                'prefix' => false,
+                'controller' => 'Users',
+                'action' => 'login'
+            ],
+            'loginRedirect' => '/',
+            'logoutRedirect' => '/',
+            'authenticate' => [
+                'all' => [
+                    'fields' => ['username' => 'email', 'password' => 'password'],
+                ],
+                'Form',
+            ]
+        ]);
+    }
+
+    /**
+     * Check if the provided user is authorized for the request.
+     *
+     * @param array|\ArrayAccess|null $user The user to check the authorization of.
+     *   If empty the user fetched from storage will be used.
+     * @return bool True if $user is authorized, otherwise false
+     */
+    public function isAuthorized($user = null)
+    {
+        return false;
     }
 }
