@@ -86,10 +86,6 @@ try {
  */
 //Configure::load('app_local', 'default');
 
-$loader = (new josegonzalez\Dotenv\Loader(CONFIG . ".env"))
-	->parse()
-	->putenv(true);
-
 /*
  * When debug = true the metadata cache should only last
  * for a short time.
@@ -216,6 +212,8 @@ Type::build('timestamp')
  * Plugin::load('Migrations'); //Loads a single plugin named Migrations
  *
  */
+Plugin::load('Crud');
+Plugin::load('Migrations');
 
 /*
  * Only try to load DebugKit in development mode
