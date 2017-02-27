@@ -23,7 +23,8 @@ use Cake\Validation\Validator;
  */
 class UsersTable extends Table
 {
-
+    use \App\Model\Table\Traits\TokenFinderTrait;
+    
     /**
      * Initialize method
      *
@@ -39,6 +40,7 @@ class UsersTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+        $this->addBehavior('Muffin/Tokenize.Tokenize');
 
         $this->hasMany('Posts', [
             'foreignKey' => 'user_id'
