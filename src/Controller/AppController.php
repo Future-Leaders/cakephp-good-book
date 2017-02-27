@@ -27,7 +27,7 @@ use Cake\Event\Event;
  */
 class AppController extends Controller
 {
-
+    use \Crud\Controller\ControllerTrait;
     /**
      * Initialization hook method.
      *
@@ -40,7 +40,7 @@ class AppController extends Controller
     public function initialize()
     {
         parent::initialize();
-
+        $this->loadComponent('Crud.Crud');
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
         $this->loadAuthComponent();

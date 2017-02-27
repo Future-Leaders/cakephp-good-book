@@ -212,8 +212,7 @@ Type::build('timestamp')
  * Plugin::load('Migrations'); //Loads a single plugin named Migrations
  *
  */
-Plugin::load('Crud');
-Plugin::load('Migrations');
+
 
 /*
  * Only try to load DebugKit in development mode
@@ -222,3 +221,6 @@ Plugin::load('Migrations');
 if (Configure::read('debug')) {
     Plugin::load('DebugKit', ['bootstrap' => true]);
 }
+Plugin::load('Crud');
+Plugin::load('CrudUsers');
+Plugin::load('Migrations');
