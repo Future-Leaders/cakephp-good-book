@@ -224,3 +224,4 @@ if (Configure::read('debug')) {
 Plugin::load('Crud');
 Plugin::load('CrudUsers');
 Plugin::load('Migrations');
+Plugin::load('Muffin/Tokenize', ['bootstrap' => true, 'routes' => true]);

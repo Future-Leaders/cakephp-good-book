@@ -12,7 +12,8 @@
         "cakephp/plugin-installer": "*",
         "friendsofcake/crud": "^4.3",
         "friendsofcake/crud-users": "0.3.*",
-	    "josegonzalez/dotenv": "dev-master"
+	    "josegonzalez/dotenv": "dev-master",
+        "muffin/tokenize": "^1.0"
     },
     "require-dev": {
         "psy/psysh": "@stable",

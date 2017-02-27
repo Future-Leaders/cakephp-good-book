@@ -16,6 +16,16 @@ class UsersController extends AppController
         parent::initialize();
         $this->Crud->mapAction('login', 'CrudUsers.Login');
         $this->Crud->mapAction('logout', 'CrudUsers.Logout');
+        $this->Crud->mapAction('forgotPassword', 'CrudUsers.ForgotPassword');
+        $this->Crud->mapAction('resetPassword', [
+            'className' => 'CrudUsers.ResetPassword',
+            'findMethod' => 'token',
+        ]);
+        $this->Crud->mapAction('verify', [
+            'className' => 'CrudUsers.Verify',
+            'findMethod' => 'token',
+        ]);
+        $this->Auth->allow(['forgotPassword', 'resetPassword', 'verify']);
     }
 
     public function isAuthorized($user = null) 
