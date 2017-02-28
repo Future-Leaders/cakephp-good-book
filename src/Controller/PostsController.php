@@ -10,4 +10,9 @@ use App\Controller\AppController;
  */
 class PostsController extends AppController
 {
+    public function intialize()
+    {
+        parent::initialize();
+        $this->Auth->allow(['index']);
+    }
 }
