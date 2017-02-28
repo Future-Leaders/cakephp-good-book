@@ -3,7 +3,7 @@ use Cake\Routing\Router;
 $url = Router::url(
     [
         'controller' => 'users',
-        'action' => 'verify',
+        'action' => 'resetPassword',
         $token
     ],
     true
