@@ -11,6 +11,7 @@ use App\Model\Entity\User;
  */
 class UsersController extends AppController
 {
+    
     public function initialize()
     {
         parent::initialize();
@@ -26,6 +27,8 @@ class UsersController extends AppController
             'findMethod' => 'token',
         ]);
         $this->Auth->allow(['forgotPassword', 'resetPassword', 'verify']);
+
+        $this->Crud->addListener('Users', 'App\Listener\UsersListener');
     }
 
     public function isAuthorized($user = null) 
